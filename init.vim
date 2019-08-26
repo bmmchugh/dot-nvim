@@ -11,10 +11,13 @@
 
 " call pathogen#infect()
 
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python2_host_prog = 'python2'
+let g:python3_host_prog = 'python3'
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/kana/vim-textobj-user.git'
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git'
@@ -34,8 +37,18 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tfnico/vim-gradle.git'
 Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug '~/.local/share/nvim/eclim'
 call plug#end()
+
+call glaive#Install()
+Glaive codefmt plugin[mappings]
+"Glaive codefmt google_java_executable='java -jar /home/bryce/.local/share/applications/google-java-format/current/google-java-format.jar'
+Glaive codefmt google_java_executable='google-java-format'
+
+augroup autoformat_settings
+  autocmd FileType java AutoFormatBuffer google-java-format
+augroup END
 
 runtime macros/matchit.vim
 
@@ -71,7 +84,7 @@ map Q gq
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
 
-set t_Co=16
+"set t_Co=16
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 " if &t_Co > 2 || has("gui_running")
@@ -79,9 +92,9 @@ set t_Co=16
 "   set hlsearch
 " endif
 syntax enable
-set background=dark
-let g:solarized_termcolors=16
-colorscheme solarized
+"set background=dark
+"let g:solarized_termcolors=16
+"colorscheme solarized
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -168,3 +181,12 @@ endfunction
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
 let g:EclimCompletionMethod = 'omnifunc'
 set clipboard=unnamed
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
