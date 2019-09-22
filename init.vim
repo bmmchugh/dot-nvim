@@ -35,6 +35,7 @@ Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/markdown-preview.nvim'
 call plug#end()
 
 call glaive#Install()
