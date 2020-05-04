@@ -35,6 +35,11 @@ Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-docker', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
