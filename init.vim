@@ -33,6 +33,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-abolish'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-java', { 'do': 'yarn install --frozen-lockfile' }
